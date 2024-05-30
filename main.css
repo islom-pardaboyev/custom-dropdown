@@ -22,6 +22,40 @@ body{
     height: 50px;
 }
 
+.dropdown::after{
+    content: "";
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    width: 12px;
+    height: 2px;
+    background: #555;
+    z-index: 10;
+    transform: rotate(-40deg);
+    transition: .5s;
+}
+
+.dropdown::before{
+    content: "";
+    position: absolute;
+    top: 25px;
+    right: 28px;
+    width: 12px;
+    height: 2px;
+    background: #555;
+    z-index: 10;
+    transform: rotate(40deg);
+    transition: .5s;
+}
+
+.dropdown.active::before{
+    right: 20px;
+}
+
+.dropdown.active::after{
+    right: 28px;
+}
+
 .dropdown input{
     position: absolute;
     top: 0;
@@ -36,4 +70,32 @@ body{
     box-shadow: 0 5px 20px rgba(0, 0, 0, .05);
     outline: none;
     border: none;
+    
+}
+.dropdown .option{
+    position: absolute;
+    top: 70px;
+    border-radius: 10px;
+    width: 100%;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 30px 30px rgba(0, 0, 0, .05);
+    opacity: 0;
+    transition: .2s;
+    visibility: hidden;
+}
+
+.dropdown.active .option{
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown .option p{
+    padding: 12px 20px;
+    cursor: pointer;
+}
+
+.dropdown .option p:hover{
+    background: #62baea;
+    color: #fff;
 }
